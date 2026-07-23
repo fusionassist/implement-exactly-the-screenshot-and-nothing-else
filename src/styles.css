@@ -17,6 +17,8 @@
   --color-card-foreground: var(--card-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--highlight-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -29,6 +31,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-display: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
 
@@ -39,32 +42,37 @@
   --radius: 0.75rem;
 
   /* Off-white page bg */
-  --background: oklch(0.985 0.003 90);          /* ~ #F6F6F6 warm */
-  --foreground: oklch(0.18 0.01 260);           /* near-black ink */
+  --background: oklch(0.985 0.003 90);
+  --foreground: oklch(0.18 0.01 260);
 
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.18 0.01 260);
 
-  /* Yellow primary matching #FFD400 */
-  --primary: oklch(0.87 0.18 95);
-  --primary-foreground: oklch(0.15 0.01 260);
+  /* Green primary matching CluScore logo (~ #22B14C) */
+  --primary: oklch(0.66 0.19 148);
+  --primary-foreground: oklch(0.99 0.005 90);
+
+  /* Yellow highlight (scoreboard LED) */
+  --highlight: oklch(0.87 0.18 95);
+  --highlight-foreground: oklch(0.15 0.01 260);
 
   /* Ink / black slab */
-  --ink: oklch(0.17 0.008 260);                 /* ~ #111 */
+  --ink: oklch(0.17 0.008 260);
   --ink-foreground: oklch(0.985 0.003 90);
 
   --secondary: oklch(0.94 0.005 90);
   --secondary-foreground: oklch(0.18 0.01 260);
   --muted: oklch(0.94 0.005 90);
   --muted-foreground: oklch(0.45 0.01 260);
-  --accent: oklch(0.87 0.18 95);
-  --accent-foreground: oklch(0.15 0.01 260);
+  --accent: oklch(0.66 0.19 148);
+  --accent-foreground: oklch(0.99 0.005 90);
   --destructive: oklch(0.58 0.22 27);
   --destructive-foreground: oklch(0.985 0.003 90);
   --border: oklch(0.9 0.005 90);
   --input: oklch(0.9 0.005 90);
-  --ring: oklch(0.87 0.18 95);
+  --ring: oklch(0.66 0.19 148);
 }
+
 
 @layer base {
   * {
