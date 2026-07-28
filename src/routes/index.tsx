@@ -636,7 +636,7 @@ function Contact() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nClub: ${form.club}\nCounty: ${form.county}\nPhone/email: ${form.contact}\n\n${form.message}`
     );
-    return `mailto:gerry@fusiontechnologies.ie?subject=${subject}&body=${body}`;
+    return `mailto:sales@interactivedisplays.ie?subject=${subject}&body=${body}`;
   }, [form]);
 
   const onSubmit = (e: React.FormEvent) => {
@@ -669,10 +669,10 @@ function Contact() {
             <li className="flex gap-3">
               <span className="mt-0.5">✉️</span>
               <a
-                href="mailto:gerry@fusiontechnologies.ie"
+                href="mailto:sales@interactivedisplays.ie"
                 className="border-b border-primary hover:opacity-80"
               >
-                gerry@fusiontechnologies.ie
+                sales@interactivedisplays.ie
               </a>
             </li>
           </ul>
@@ -755,7 +755,7 @@ function Contact() {
             </p>
           )}
           <p className="mt-3 text-center text-[11px] text-muted-foreground">
-            Submitting opens your email app addressed to gerry@fusiontechnologies.ie.
+            Submitting opens your email app addressed to sales@interactivedisplays.ie.
           </p>
         </form>
       </div>
@@ -783,10 +783,10 @@ function Footer() {
           <div className="font-semibold">Interactive Displays Ireland</div>
           <div className="mt-1 text-muted-foreground">Ireland</div>
           <a
-            href="mailto:gerry@fusiontechnologies.ie"
+            href="mailto:sales@interactivedisplays.ie"
             className="mt-1 inline-block text-muted-foreground hover:text-foreground"
           >
-            gerry@fusiontechnologies.ie
+            sales@interactivedisplays.ie
           </a>
         </div>
       </div>
