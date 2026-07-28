@@ -406,7 +406,7 @@ function Features() {
     ["Text ad mode", "Sponsor messages, lotto reminders, notices."],
     ["Image ad mode", "Sponsor logos and posters between action."],
     ["Video ad mode", "Looping muted video clips."],
-    ["Phone/tablet control", "Any device on the club WiFi."],
+    ["Phone/tablet control", "Any Modern SmartPhone or Tablet will work."],
     ["Standard LED panels", "Irish assembled LED Scoreboards."],
     ["Reboots itself", "Auto-starts on power-on, respawns if it crashes."],
     ["Made in Ireland", "Built and supported locally."],
