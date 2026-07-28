@@ -20,6 +20,69 @@ function HeroImage() {
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "CluScore — LED Scoreboards for GAA Clubs | Irish Assembled" },
+      {
+        name: "description",
+        content:
+          "CluScore builds Irish-assembled LED scoreboards for GAA clubs. Live goals and points, phone control over Wi‑Fi, and sponsor ad slots. Installed and supported across Ireland.",
+      },
+      { name: "keywords", content: "GAA scoreboard, LED scoreboard Ireland, GAA club scoreboard, hurling scoreboard, football scoreboard, sponsor advertising scoreboard, CluScore" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { property: "og:title", content: "CluScore — LED Scoreboards for GAA Clubs" },
+      {
+        property: "og:description",
+        content:
+          "Irish-assembled LED scoreboards with live GAA scoring, phone control and sponsor ad slots. Installed and supported in Ireland.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { property: "og:image", content: heroAsset.url },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "CluScore — LED Scoreboards for GAA Clubs" },
+      {
+        name: "twitter:description",
+        content:
+          "Irish-assembled LED scoreboards with live GAA scoring, phone control and sponsor ad slots.",
+      },
+      { name: "twitter:image", content: heroAsset.url },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              name: "Interactive Displays Ireland",
+              url: "/",
+              email: "sales@interactivedisplays.ie",
+              areaServed: "IE",
+              brand: { "@type": "Brand", name: "CluScore" },
+            },
+            {
+              "@type": "Product",
+              name: "CluScore LED Scoreboard",
+              brand: { "@type": "Brand", name: "CluScore" },
+              category: "LED scoreboard",
+              description:
+                "Irish-assembled LED scoreboard for GAA clubs with live goals and points, phone control over Wi‑Fi, and sponsor ad slots.",
+              image: heroAsset.url,
+              areaServed: "IE",
+            },
+            {
+              "@type": "WebSite",
+              name: "CluScore",
+              url: "/",
+            },
+          ],
+        }),
+      },
+    ],
+  }),
 });
 
 
