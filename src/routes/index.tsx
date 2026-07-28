@@ -499,14 +499,25 @@ function Testimonial() {
   return (
     <section className="mx-auto max-w-4xl px-5 py-20 text-center">
       <div className="text-5xl leading-none text-primary">"</div>
-      <blockquote className="mt-2 text-2xl font-semibold leading-snug sm:text-3xl">
-        Testimonial from Moylagh GAA coming soon — the board's already changed how
-        we run match days.
+      <blockquote className="mt-2 space-y-4 text-lg font-medium leading-relaxed sm:text-xl">
+        <p>
+          The addition of the LED scoreboard screen at our grounds has made a huge difference to us in terms of both games and advertising options.
+        </p>
+        <p>
+          For games, the LED screen provides a crisp and clear display of the score and game timing for both players and spectators, regardless of whether matches are played during day or night time.
+        </p>
+        <p>
+          In terms of advertising, the control configuration provides us with great flexibility in terms of image or text display and has proved to be a great asset in the club grounds well beyond games.
+        </p>
+        <p>
+          The sales and support service provided were excellent and made the entire process of supply, installation and follow up seamless — we couldn't be happier with the finished product.
+        </p>
       </blockquote>
       <div className="mt-6 text-sm font-semibold text-muted-foreground">
-        [Name], [Role] · Moylagh GAA
+        Joe Melia · Moylagh GAA
       </div>
     </section>
+
   );
 }
 
