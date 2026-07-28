@@ -398,7 +398,49 @@ function HowItWorks() {
   );
 }
 
+/* ---------------- Phone Showcase ---------------- */
+import phoneStart from "@/assets/phone_start_screen.jpeg.asset.json";
+import phoneTimer from "@/assets/phone_timer_after_start.jpeg.asset.json";
+import phoneNames from "@/assets/phone_uppercase_team_names.jpeg.asset.json";
+import phoneAd from "@/assets/phone_text_advert_update.jpeg.asset.json";
+import phoneMedia from "@/assets/phone_video_image_advert_settings.jpeg.asset.json";
+import phoneFT from "@/assets/phone_realistic_full_time_score_1.jpeg.asset.json";
+
+function PhoneShowcase() {
+  const shots = [
+    { src: phoneStart.url, label: "Score control", caption: "+1 Goal, +1 Point — one tap." },
+    { src: phoneTimer.url, label: "Match timer", caption: "Start, stop, 1st / 2nd half." },
+    { src: phoneNames.url, label: "Team names", caption: "Set both clubs and go." },
+    { src: phoneFT.url, label: "Full-time score", caption: "Live GAA-format scoreline." },
+    { src: phoneAd.url, label: "Welcome & ad text", caption: "Update sponsor messages instantly." },
+    { src: phoneMedia.url, label: "Image / video ads", caption: "Upload straight from your phone." },
+  ];
+  return (
+    <section id="phone" className="mx-auto max-w-6xl px-5 py-20">
+      <SectionHead
+        eyebrow="On your phone"
+        title="The whole match, from the palm of your hand."
+        subtitle="Every screenshot below is the real CluScore control panel — open it on any smartphone or tablet on the club WiFi. No app to install."
+      />
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {shots.map((s) => (
+          <figure key={s.label} className="group flex flex-col items-center">
+            <div className="relative w-full max-w-[240px] overflow-hidden rounded-[2rem] border-[6px] border-ink bg-ink shadow-panel transition group-hover:-translate-y-1">
+              <img src={s.src} alt={s.label} className="block w-full" />
+            </div>
+            <figcaption className="mt-4 text-center">
+              <div className="text-sm font-bold">{s.label}</div>
+              <div className="mt-1 text-xs text-muted-foreground">{s.caption}</div>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 /* ---------------- Features ---------------- */
+
 function Features() {
   const items = [
     ["GAA-native scoring", "Goals + points, zero-padded, always readable at a glance."],
