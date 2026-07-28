@@ -499,7 +499,7 @@ function Testimonial() {
   return (
     <section className="mx-auto max-w-4xl px-5 py-20 text-center">
       <div className="text-5xl leading-none text-primary">"</div>
-      <blockquote className="mt-2 space-y-4 text-lg font-medium leading-relaxed sm:text-xl">
+      <blockquote className="mt-2 space-y-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
         <p>
           The addition of the LED scoreboard screen at our grounds has made a huge difference to us in terms of both games and advertising options.
         </p>
