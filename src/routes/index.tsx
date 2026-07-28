@@ -368,7 +368,7 @@ function HowItWorks() {
     {
       n: "2",
       title: "You control from your phone",
-      body: "Bookmark the URL, open on any phone on Wi-Fi 6 — full pitch coverage.",
+      body: "Simple to use, straight on any smart phone.",
     },
     {
       n: "3",
