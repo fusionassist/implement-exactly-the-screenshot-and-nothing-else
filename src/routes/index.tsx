@@ -544,34 +544,39 @@ import moylaghCrest from "@/assets/moylagh_crest.jpg.asset.json";
 
 function Testimonial() {
   return (
-    <section className="mx-auto max-w-4xl px-5 py-20 text-center">
-      <div className="text-xs font-bold uppercase tracking-[0.2em]">
+    <section className="mx-auto max-w-4xl px-5 py-20">
+      <div className="text-center text-xs font-bold uppercase tracking-[0.2em]">
         <span className="rounded bg-primary px-2 py-1 text-primary-foreground">Testimonial</span>
       </div>
-      <img
-        src={moylaghCrest.url}
-        alt="Moylagh GAA (C.L.G. Maolach) club crest"
-        className="mx-auto mt-8 h-24 w-auto"
-      />
-      <div className="mt-4 text-5xl leading-none text-primary">"</div>
-      <blockquote className="mt-2 space-y-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-        <p>
-          The addition of the LED scoreboard screen at our grounds has made a huge difference to us in terms of both games and advertising options.
-        </p>
-        <p>
-          For games, the LED screen provides a crisp and clear display of the score and game timing for both players and spectators, regardless of whether matches are played during day or night time.
-        </p>
-        <p>
-          In terms of advertising, the control configuration provides us with great flexibility in terms of image or text display and has proved to be a great asset in the club grounds well beyond games.
-        </p>
-        <p>
-          The sales and support service provided were excellent and made the entire process of supply, installation and follow up seamless — we couldn't be happier with the finished product.
-        </p>
-      </blockquote>
-      <div className="mt-6 text-sm font-semibold text-muted-foreground">
-        Joe Melia · Moylagh GAA
+      <div className="mt-10 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-10">
+        <img
+          src={moylaghCrest.url}
+          alt="Moylagh GAA (C.L.G. Maolach) club crest"
+          className="mx-auto h-28 w-auto sm:mx-0 sm:h-32"
+        />
+        <div>
+          <div className="text-4xl leading-none text-primary">"</div>
+          <blockquote className="mt-2 space-y-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <p>
+              The addition of the LED scoreboard screen at our grounds has made a huge difference to us in terms of both games and advertising options.
+            </p>
+            <p>
+              For games, the LED screen provides a crisp and clear display of the score and game timing for both players and spectators, regardless of whether matches are played during day or night time.
+            </p>
+            <p>
+              In terms of advertising, the control configuration provides us with great flexibility in terms of image or text display and has proved to be a great asset in the club grounds well beyond games.
+            </p>
+            <p>
+              The sales and support service provided were excellent and made the entire process of supply, installation and follow up seamless — we couldn't be happier with the finished product.
+            </p>
+          </blockquote>
+          <div className="mt-6 text-sm font-semibold text-foreground">
+            Joe Melia · Moylagh GAA
+          </div>
+        </div>
       </div>
     </section>
+
   );
 }
 
