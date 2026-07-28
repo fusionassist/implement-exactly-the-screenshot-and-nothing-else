@@ -419,14 +419,21 @@ function Features() {
 }
 
 /* ---------------- Gallery ---------------- */
+import install1 from "@/assets/install-10-29.18.jpeg.asset.json";
+import install2 from "@/assets/install-10-29.28.jpeg.asset.json";
+import install3 from "@/assets/install-10-29.38.jpeg.asset.json";
+import install4 from "@/assets/install-10-30.00.jpeg.asset.json";
+import install5 from "@/assets/install-10-30.22.jpeg.asset.json";
+import install6 from "@/assets/install-10-30.43.jpeg.asset.json";
+
 function Gallery() {
   const tiles = [
-    { label: "Match day · Moylagh v Athboy", tone: "score" as const },
-    { label: "Sponsor slot · Murphy's Hardware", tone: "sponsor" as const },
-    { label: "Wide shot · Clubhouse install", tone: "wide" as const },
-    { label: "Half-time · Timer counting", tone: "timer" as const },
-    { label: "Close-up · LED detail", tone: "close" as const },
-    { label: "Your club here", tone: "placeholder" as const },
+    { src: install1.url, label: "Match night · Moylagh 4-11 v Summerhill 2-5", club: "MOYLAGH GAA" },
+    { src: install3.url, label: "Sponsor & community slot · Ireland Lights Up", club: "MOYLAGH GAA" },
+    { src: install2.url, label: "Pitch-side view · full scoreboard mode", club: "MOYLAGH GAA" },
+    { src: install6.url, label: "Daylight readable · sponsor rotation", club: "MOYLAGH GAA" },
+    { src: install4.url, label: "Clann na nGael · Athboy v Trim", club: "CLANN NA nGAEL" },
+    { src: install5.url, label: "Fresh install · Home v Away 0:0", club: "CLANN NA nGAEL" },
   ];
   return (
     <section id="gallery" className="border-y border-border bg-ink text-ink-foreground">
@@ -437,17 +444,32 @@ function Gallery() {
               <span className="rounded bg-primary px-2 py-1 text-primary-foreground">Gallery</span>
             </div>
             <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">
-              Match-day, from the Moylagh install.
+              Installed and lit up at real GAA clubs.
             </h2>
           </div>
           <p className="max-w-sm text-sm text-ink-foreground/70">
-            Real photos from real matches. More clubs and installs coming as we roll out.
+            Photos from Moylagh GAA and Clann na nGael — score mode, sponsor rotation, and daytime visibility.
           </p>
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {tiles.map((t, i) => (
-            <GalleryTile key={i} label={t.label} tone={t.tone} />
+            <figure key={i} className="group overflow-hidden rounded-xl border border-white/10 bg-black">
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <img
+                  src={t.src}
+                  alt={t.label}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <figcaption className="flex items-center justify-between gap-3 border-t border-white/10 px-4 py-3 text-xs">
+                <span className="text-ink-foreground/80">{t.label}</span>
+                <span className="shrink-0 rounded bg-white/5 px-2 py-0.5 font-mono text-[10px] text-highlight/80">
+                  {t.club}
+                </span>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>
@@ -455,85 +477,6 @@ function Gallery() {
   );
 }
 
-function GalleryTile({
-  label,
-  tone,
-}: {
-  label: string;
-  tone: "score" | "sponsor" | "wide" | "timer" | "close" | "placeholder";
-}) {
-  return (
-    <figure className="group overflow-hidden rounded-xl border border-white/10 bg-black">
-      <div className="relative aspect-[4/3] w-full">
-        <TileContent tone={tone} />
-      </div>
-      <figcaption className="flex items-center justify-between border-t border-white/10 px-4 py-3 text-xs">
-        <span className="text-ink-foreground/80">{label}</span>
-        <span className="rounded bg-white/5 px-2 py-0.5 font-mono text-[10px] text-highlight/80">
-          MOYLAGH
-        </span>
-
-      </figcaption>
-    </figure>
-  );
-}
-
-function TileContent({ tone }: { tone: string }) {
-  if (tone === "placeholder") {
-    return (
-      <div className="flex h-full items-center justify-center bg-gradient-to-br from-white/5 to-white/0 text-center">
-        <div>
-          <div className="text-3xl">📸</div>
-          <div className="mt-2 text-xs uppercase tracking-widest text-ink-foreground/60">
-            Your install here
-          </div>
-        </div>
-      </div>
-    );
-  }
-  return (
-    <div className="scoreboard led-dots h-full !rounded-none !border-x-0 !border-t-0 !border-b-2 !p-5">
-      {tone === "score" && (
-        <div className="grid h-full grid-cols-[1fr_auto_1fr] items-center gap-3">
-          <TeamBlock name="MOYLAGH" goals="2" points="15" />
-          <div className="h-16 w-1 rounded bg-highlight" />
-          <TeamBlock name="ATHBOY" goals="1" points="12" align="right" />
-        </div>
-      )}
-      {tone === "sponsor" && (
-        <div className="flex h-full flex-col items-center justify-center text-center">
-          <div className="text-[10px] font-black tracking-[0.3em] text-highlight/70">SPONSOR</div>
-          <div className="mt-2 font-mono text-2xl font-black text-highlight">MURPHY'S</div>
-          <div className="mt-1 text-xs text-highlight/70">HARDWARE · SINCE 1974</div>
-        </div>
-      )}
-      {tone === "wide" && (
-        <div className="flex h-full flex-col justify-between">
-          <div className="flex justify-between text-[9px] tracking-[0.3em] text-highlight/70">
-            <span>SFC</span>
-            <span>ROUND 3</span>
-          </div>
-          <div className="text-center font-mono text-4xl font-black text-highlight">02–15 · 01–12</div>
-          <div className="text-center text-[9px] tracking-[0.3em] text-highlight/70">
-            MOYLAGH GAA · CLUBHOUSE
-          </div>
-        </div>
-      )}
-      {tone === "timer" && (
-        <div className="flex h-full flex-col items-center justify-center">
-          <div className="text-[10px] tracking-[0.3em] text-highlight/70">HALF-TIME</div>
-          <div className="mt-1 font-mono text-6xl font-black text-highlight tabular-nums">30:00</div>
-        </div>
-      )}
-      {tone === "close" && (
-        <div className="flex h-full items-center justify-center">
-          <span className="font-mono text-8xl font-black text-highlight">15</span>
-        </div>
-      )}
-
-    </div>
-  );
-}
 
 /* ---------------- Testimonial ---------------- */
 function Testimonial() {
