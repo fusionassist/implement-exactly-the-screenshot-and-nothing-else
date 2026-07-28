@@ -1,7 +1,19 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import logoAsset from "@/assets/cluscore-logo.png.asset.json";
 import heroAsset from "@/assets/hero-moylagh.jpg.asset.json";
+import phoneStart from "@/assets/phone_start_screen.jpeg.asset.json";
+import phoneTimer from "@/assets/phone_timer_after_start.jpeg.asset.json";
+import phoneNames from "@/assets/phone_uppercase_team_names.jpeg.asset.json";
+import phoneAd from "@/assets/phone_text_advert_update.jpeg.asset.json";
+import phoneMedia from "@/assets/phone_video_image_advert_settings.jpeg.asset.json";
+import phoneFT from "@/assets/phone_realistic_full_time_score_1.jpeg.asset.json";
+import install1 from "@/assets/install-10-29.18.jpeg.asset.json";
+import install2 from "@/assets/install-10-29.28.jpeg.asset.json";
+import install3 from "@/assets/install-10-29.38.jpeg.asset.json";
+import install4 from "@/assets/install-10-30.00.jpeg.asset.json";
+import install5 from "@/assets/install-10-30.22.jpeg.asset.json";
+import install6 from "@/assets/install-10-30.43.jpeg.asset.json";
+import moylaghCrest from "@/assets/moylagh_crest.jpg.asset.json";
 
 function HeroImage() {
   return (
@@ -18,75 +30,7 @@ function HeroImage() {
   );
 }
 
-export const Route = createFileRoute("/")({
-  component: Index,
-  head: () => ({
-    meta: [
-      { title: "CluScore — LED Scoreboards for GAA Clubs | Irish Assembled" },
-      {
-        name: "description",
-        content:
-          "CluScore builds Irish-assembled LED scoreboards for GAA clubs. Live goals and points, phone control over Wi‑Fi, and sponsor ad slots. Installed and supported across Ireland.",
-      },
-      { name: "keywords", content: "GAA scoreboard, LED scoreboard Ireland, GAA club scoreboard, hurling scoreboard, football scoreboard, sponsor advertising scoreboard, CluScore" },
-      { name: "robots", content: "index, follow, max-image-preview:large" },
-      { property: "og:title", content: "CluScore — LED Scoreboards for GAA Clubs" },
-      {
-        property: "og:description",
-        content:
-          "Irish-assembled LED scoreboards with live GAA scoring, phone control and sponsor ad slots. Installed and supported in Ireland.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
-      { property: "og:image", content: heroAsset.url },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "CluScore — LED Scoreboards for GAA Clubs" },
-      {
-        name: "twitter:description",
-        content:
-          "Irish-assembled LED scoreboards with live GAA scoring, phone control and sponsor ad slots.",
-      },
-      { name: "twitter:image", content: heroAsset.url },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "Organization",
-              name: "Interactive Displays Ireland",
-              url: "/",
-              email: "sales@interactivedisplays.ie",
-              areaServed: "IE",
-              brand: { "@type": "Brand", name: "CluScore" },
-            },
-            {
-              "@type": "Product",
-              name: "CluScore LED Scoreboard",
-              brand: { "@type": "Brand", name: "CluScore" },
-              category: "LED scoreboard",
-              description:
-                "Irish-assembled LED scoreboard for GAA clubs with live goals and points, phone control over Wi‑Fi, and sponsor ad slots.",
-              image: heroAsset.url,
-              areaServed: "IE",
-            },
-            {
-              "@type": "WebSite",
-              name: "CluScore",
-              url: "/",
-            },
-          ],
-        }),
-      },
-    ],
-  }),
-});
-
-
-function Index() {
+export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
@@ -96,8 +40,6 @@ function Index() {
       <HowItWorks />
       <PhoneShowcase />
       <Features />
-
-
       <Testimonial />
       <FAQ />
       <CTABand />
@@ -124,7 +66,6 @@ function Nav() {
         <a href="#top" className="flex items-center">
           <LogoMark />
         </a>
-
         <nav className="hidden gap-7 md:flex">
           {links.map(([label, href]) => (
             <a
@@ -180,7 +121,6 @@ function Nav() {
 function LogoMark({ className = "h-9 w-auto" }: { className?: string }) {
   return <img src={logoAsset.url} alt="CluScore" className={className} />;
 }
-
 
 /* ---------------- Hero ---------------- */
 function Hero() {
@@ -241,118 +181,9 @@ function Hero() {
             </div>
           </dl>
         </div>
-
         <HeroImage />
       </div>
     </section>
-  );
-}
-
-function ScoreboardMock() {
-  return (
-    <div className="relative">
-      <div className="scoreboard led-dots aspect-[16/10] w-full">
-        {/* Half indicator */}
-        <div className="flex items-center justify-between text-[10px] font-bold tracking-[0.3em] text-highlight/80">
-          <span>HALF 2</span>
-          <span className="rounded bg-highlight px-2 py-0.5 text-highlight-foreground">18:42</span>
-        </div>
-
-        {/* Scores */}
-        <div className="mt-4 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
-          <TeamBlock name="MOYLAGH" goals="2" points="15" />
-          <div className="h-24 w-1.5 rounded bg-highlight" />
-          <TeamBlock name="ATHBOY" goals="1" points="12" align="right" />
-        </div>
-
-        {/* Sponsor ribbon */}
-        <div className="mt-4 flex items-center gap-2 rounded border border-highlight/40 bg-black/40 px-3 py-2">
-          <span className="rounded bg-highlight px-1.5 py-[1px] text-[9px] font-black tracking-wider text-highlight-foreground">
-            SPONSOR
-          </span>
-          <span className="truncate font-mono text-[11px] tracking-wider text-highlight/90">
-            MURPHY'S HARDWARE — PROUD SPONSORS OF MOYLAGH GAA
-          </span>
-        </div>
-      </div>
-
-
-      {/* Floating "phone control" chip */}
-      <div className="absolute -bottom-6 -left-4 hidden rounded-xl border border-border bg-card p-3 shadow-lg sm:block">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg yellow-bar text-lg">
-            📱
-          </div>
-          <div>
-            <div className="text-xs font-semibold">Score updated</div>
-            <div className="text-[11px] text-muted-foreground">from Séan's phone · 2s ago</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function TeamBlock({
-  name,
-  goals,
-  points,
-  align = "left",
-}: {
-  name: string;
-  goals: string;
-  points: string;
-  align?: "left" | "right";
-}) {
-  return (
-    <div className={align === "right" ? "text-right" : "text-left"}>
-      <div className={`truncate text-sm font-black tracking-[0.15em] text-highlight/90`}>{name}</div>
-      <div
-        className={`mt-1 flex items-baseline gap-2 ${
-          align === "right" ? "justify-end" : "justify-start"
-        }`}
-      >
-        <span className="text-6xl font-black leading-none text-highlight tabular-nums sm:text-7xl">
-          {goals.padStart(2, "0")}
-        </span>
-        <span className="text-3xl font-black text-highlight/80">–</span>
-        <span className="text-6xl font-black leading-none text-highlight tabular-nums sm:text-7xl">
-          {points.padStart(2, "0")}
-        </span>
-      </div>
-
-    </div>
-  );
-}
-
-/* ---------------- Trust bar ---------------- */
-function TrustBar() {
-  return (
-    <section className="border-y border-border bg-card">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6 px-5 py-6 text-sm text-muted-foreground">
-        <span className="font-semibold uppercase tracking-widest text-foreground/70">
-          Trusted by
-        </span>
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-          <ClubBadge name="Moylagh GAA" />
-          <span className="text-xs italic text-muted-foreground">
-            More clubs coming soon — will yours be next?
-          </span>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ClubBadge({ name }: { name: string }) {
-  return (
-    <div className="flex items-center gap-2">
-      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-ink text-[10px] font-black text-highlight">
-        GAA
-
-      </span>
-      <span className="font-semibold text-foreground">{name}</span>
-    </div>
   );
 }
 
@@ -415,7 +246,6 @@ function SectionHead({
       <div className="text-xs font-bold uppercase tracking-[0.2em]">
         <span className="rounded bg-primary px-2 py-1 text-primary-foreground">{eyebrow}</span>
       </div>
-
       <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">{title}</h2>
       {subtitle && <p className="mt-3 text-muted-foreground">{subtitle}</p>}
     </div>
@@ -425,21 +255,9 @@ function SectionHead({
 /* ---------------- How it works ---------------- */
 function HowItWorks() {
   const steps = [
-    {
-      n: "1",
-      title: "We install",
-      body: "LED panel with controller, mounted where you want it.",
-    },
-    {
-      n: "2",
-      title: "You control from your phone",
-      body: "Simple to use, straight on any smart phone.",
-    },
-    {
-      n: "3",
-      title: "It just runs",
-      body: "Auto-starts when the panel powers on. No laptop, no cables, no fuss.",
-    },
+    { n: "1", title: "We install", body: "LED panel with controller, mounted where you want it." },
+    { n: "2", title: "You control from your phone", body: "Simple to use, straight on any smart phone." },
+    { n: "3", title: "It just runs", body: "Auto-starts when the panel powers on. No laptop, no cables, no fuss." },
   ];
   return (
     <section id="how" className="border-y border-border bg-card">
@@ -462,13 +280,6 @@ function HowItWorks() {
 }
 
 /* ---------------- Phone Showcase ---------------- */
-import phoneStart from "@/assets/phone_start_screen.jpeg.asset.json";
-import phoneTimer from "@/assets/phone_timer_after_start.jpeg.asset.json";
-import phoneNames from "@/assets/phone_uppercase_team_names.jpeg.asset.json";
-import phoneAd from "@/assets/phone_text_advert_update.jpeg.asset.json";
-import phoneMedia from "@/assets/phone_video_image_advert_settings.jpeg.asset.json";
-import phoneFT from "@/assets/phone_realistic_full_time_score_1.jpeg.asset.json";
-
 function PhoneShowcase() {
   const shots = [
     { src: phoneStart.url, label: "Score control", caption: "+1 Goal, +1 Point — one tap." },
@@ -503,7 +314,6 @@ function PhoneShowcase() {
 }
 
 /* ---------------- Features ---------------- */
-
 function Features() {
   const items = [
     ["GAA-native scoring", "Goals + points, zero-padded, always readable at a glance."],
@@ -542,13 +352,6 @@ function Features() {
 }
 
 /* ---------------- Gallery ---------------- */
-import install1 from "@/assets/install-10-29.18.jpeg.asset.json";
-import install2 from "@/assets/install-10-29.28.jpeg.asset.json";
-import install3 from "@/assets/install-10-29.38.jpeg.asset.json";
-import install4 from "@/assets/install-10-30.00.jpeg.asset.json";
-import install5 from "@/assets/install-10-30.22.jpeg.asset.json";
-import install6 from "@/assets/install-10-30.43.jpeg.asset.json";
-
 function Gallery() {
   const tiles = [
     { src: install1.url, label: "Match night · Moylagh 4-11 v Summerhill 2-5", club: "MOYLAGH GAA" },
@@ -569,13 +372,11 @@ function Gallery() {
             <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">
               Some projects we have completed
             </h2>
-
           </div>
           <p className="max-w-sm text-sm text-ink-foreground/70">
             Photos from Moylagh GAA and Clann na nGael — score mode, sponsor rotation, and daytime visibility.
           </p>
         </div>
-
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {tiles.map((t, i) => (
             <figure key={i} className="group overflow-hidden rounded-xl border border-white/10 bg-black">
@@ -601,10 +402,7 @@ function Gallery() {
   );
 }
 
-
 /* ---------------- Testimonial ---------------- */
-import moylaghCrest from "@/assets/moylagh_crest.jpg.asset.json";
-
 function Testimonial() {
   return (
     <section className="mx-auto max-w-4xl px-5 pt-8 pb-20">
@@ -612,7 +410,6 @@ function Testimonial() {
         <span className="rounded bg-primary px-2 py-1 text-primary-foreground">Testimonial</span>
       </div>
       <div className="mt-6 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-10">
-
         <img
           src={moylaghCrest.url}
           alt="Moylagh GAA (C.L.G. Maolach) club crest"
@@ -621,57 +418,27 @@ function Testimonial() {
         <div>
           <div className="text-4xl leading-none text-primary">"</div>
           <blockquote className="mt-2 space-y-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-            <p>
-              The addition of the LED scoreboard screen at our grounds has made a huge difference to us in terms of both games and advertising options.
-            </p>
-            <p>
-              For games, the LED screen provides a crisp and clear display of the score and game timing for both players and spectators, regardless of whether matches are played during day or night time.
-            </p>
-            <p>
-              In terms of advertising, the control configuration provides us with great flexibility in terms of image or text display and has proved to be a great asset in the club grounds well beyond games.
-            </p>
-            <p>
-              The sales and support service provided were excellent and made the entire process of supply, installation and follow up seamless — we couldn't be happier with the finished product.
-            </p>
+            <p>The addition of the LED scoreboard screen at our grounds has made a huge difference to us in terms of both games and advertising options.</p>
+            <p>For games, the LED screen provides a crisp and clear display of the score and game timing for both players and spectators, regardless of whether matches are played during day or night time.</p>
+            <p>In terms of advertising, the control configuration provides us with great flexibility in terms of image or text display and has proved to be a great asset in the club grounds well beyond games.</p>
+            <p>The sales and support service provided were excellent and made the entire process of supply, installation and follow up seamless — we couldn't be happier with the finished product.</p>
           </blockquote>
-          <div className="mt-6 text-sm font-semibold text-foreground">
-            Joe Melia · Moylagh GAA
-          </div>
+          <div className="mt-6 text-sm font-semibold text-foreground">Joe Melia · Moylagh GAA</div>
         </div>
       </div>
     </section>
-
   );
 }
-
 
 /* ---------------- FAQ ---------------- */
 function FAQ() {
   const faqs = [
-    {
-      q: "Will it fit our Club?",
-      a: "Panel sizes are flexible. The smallest sensible install is 1.5 m × 0.75 m, and we can go up to 6 m+ for larger Clubs. We'll spec it to your wall.",
-    },
-    {
-      q: "What does it cost?",
-      a: "Price varies with panel size, mounting, and installation location. Get in touch for a quote tailored to your specific Club.",
-    },
-    {
-      q: "Do we need internet?",
-      a: "No. Everything runs on the club's local WiFi. Internet is only needed if you want us to update the board remotely.",
-    },
-    {
-      q: "Who fixes it if it breaks?",
-      a: "Interactive Displays Ireland provides support: same-day remote diagnostics via SSH, and on-site visits for hardware issues.",
-    },
-    {
-      q: "Can we run our sponsor logos on it?",
-      a: "Yes. Upload images or videos via the phone control page; they display in the ad slots between match action.",
-    },
-    {
-      q: "Can we use it for other sports?",
-      a: "Currently GAA football and hurling (goals + points). Other sport formats on request.",
-    },
+    { q: "Will it fit our Club?", a: "Panel sizes are flexible. The smallest sensible install is 1.5 m × 0.75 m, and we can go up to 6 m+ for larger Clubs. We'll spec it to your wall." },
+    { q: "What does it cost?", a: "Price varies with panel size, mounting, and installation location. Get in touch for a quote tailored to your specific Club." },
+    { q: "Do we need internet?", a: "No. Everything runs on the club's local WiFi. Internet is only needed if you want us to update the board remotely." },
+    { q: "Who fixes it if it breaks?", a: "Interactive Displays Ireland provides support: same-day remote diagnostics via SSH, and on-site visits for hardware issues." },
+    { q: "Can we run our sponsor logos on it?", a: "Yes. Upload images or videos via the phone control page; they display in the ad slots between match action." },
+    { q: "Can we use it for other sports?", a: "Currently GAA football and hurling (goals + points). Other sport formats on request." },
   ];
   return (
     <section id="faq" className="border-y border-border bg-card">
@@ -744,13 +511,7 @@ function CTABand() {
 
 /* ---------------- Contact ---------------- */
 function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    club: "",
-    county: "",
-    contact: "",
-    message: "",
-  });
+  const [form, setForm] = useState({ name: "", club: "", county: "", contact: "", message: "" });
   const [sent, setSent] = useState(false);
 
   const mailto = useMemo(() => {
@@ -792,69 +553,33 @@ function Contact() {
             </li>
             <li className="flex gap-3">
               <span className="mt-0.5">✉️</span>
-              <a
-                href="mailto:sales@interactivedisplays.ie"
-                className="border-b border-primary hover:opacity-80"
-              >
+              <a href="mailto:sales@interactivedisplays.ie" className="border-b border-primary hover:opacity-80">
                 sales@interactivedisplays.ie
               </a>
             </li>
           </ul>
         </div>
-
-        <form
-          onSubmit={onSubmit}
-          className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8"
-        >
+        <form onSubmit={onSubmit} className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="block">
-              <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Your name
-              </span>
-              <input
-                required
-                className={field}
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-              />
+              <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Your name</span>
+              <input required className={field} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
             </label>
             <label className="block">
-              <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Club
-              </span>
-              <input
-                required
-                className={field}
-                value={form.club}
-                onChange={(e) => setForm({ ...form, club: e.target.value })}
-              />
+              <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Club</span>
+              <input required className={field} value={form.club} onChange={(e) => setForm({ ...form, club: e.target.value })} />
             </label>
             <label className="block">
-              <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                County
-              </span>
-              <input
-                className={field}
-                value={form.county}
-                onChange={(e) => setForm({ ...form, county: e.target.value })}
-              />
+              <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">County</span>
+              <input className={field} value={form.county} onChange={(e) => setForm({ ...form, county: e.target.value })} />
             </label>
             <label className="block">
-              <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Phone or email
-              </span>
-              <input
-                required
-                className={field}
-                value={form.contact}
-                onChange={(e) => setForm({ ...form, contact: e.target.value })}
-              />
+              <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Phone or email</span>
+              <input required className={field} value={form.contact} onChange={(e) => setForm({ ...form, contact: e.target.value })} />
             </label>
           </div>
           <label className="mt-4 block">
-            <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Message
-            </span>
+            <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Message</span>
             <textarea
               rows={5}
               className={field}
@@ -863,19 +588,12 @@ function Contact() {
               onChange={(e) => setForm({ ...form, message: e.target.value })}
             />
           </label>
-          <button
-            type="submit"
-            className="mt-6 w-full rounded-md bg-ink px-5 py-3 text-sm font-semibold text-ink-foreground transition hover:opacity-90"
-          >
+          <button type="submit" className="mt-6 w-full rounded-md bg-ink px-5 py-3 text-sm font-semibold text-ink-foreground transition hover:opacity-90">
             Send enquiry
           </button>
           {sent && (
             <p className="mt-3 text-center text-xs text-muted-foreground">
-              Your email app should have opened. If not,{" "}
-              <a href={mailto} className="underline">
-                click here
-              </a>
-              .
+              Your email app should have opened. If not, <a href={mailto} className="underline">click here</a>.
             </p>
           )}
           <p className="mt-3 text-center text-[11px] text-muted-foreground">
@@ -896,7 +614,6 @@ function Footer() {
           <div className="flex items-center">
             <LogoMark />
           </div>
-
           <p className="mt-3 max-w-md text-sm text-muted-foreground">
             CluScore is a product of{" "}
             <strong className="text-foreground">Interactive Displays Ireland</strong>. Purpose-built
@@ -906,10 +623,7 @@ function Footer() {
         <div className="text-sm sm:text-right">
           <div className="font-semibold">Interactive Displays Ireland</div>
           <div className="mt-1 text-muted-foreground">Ireland</div>
-          <a
-            href="mailto:sales@interactivedisplays.ie"
-            className="mt-1 inline-block text-muted-foreground hover:text-foreground"
-          >
+          <a href="mailto:sales@interactivedisplays.ie" className="mt-1 inline-block text-muted-foreground hover:text-foreground">
             sales@interactivedisplays.ie
           </a>
         </div>
