@@ -28,11 +28,11 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
-      <TrustBar />
+      <Gallery />
       <WhyCluScore />
       <HowItWorks />
       <Features />
-      <Gallery />
+
       <Testimonial />
       <FAQ />
       <CTABand />
