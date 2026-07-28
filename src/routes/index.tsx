@@ -540,10 +540,20 @@ function Gallery() {
 
 
 /* ---------------- Testimonial ---------------- */
+import moylaghCrest from "@/assets/moylagh_crest.jpg.asset.json";
+
 function Testimonial() {
   return (
     <section className="mx-auto max-w-4xl px-5 py-20 text-center">
-      <div className="text-5xl leading-none text-primary">"</div>
+      <div className="text-xs font-bold uppercase tracking-[0.2em]">
+        <span className="rounded bg-primary px-2 py-1 text-primary-foreground">Testimonial</span>
+      </div>
+      <img
+        src={moylaghCrest.url}
+        alt="Moylagh GAA (C.L.G. Maolach) club crest"
+        className="mx-auto mt-8 h-24 w-auto"
+      />
+      <div className="mt-4 text-5xl leading-none text-primary">"</div>
       <blockquote className="mt-2 space-y-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
         <p>
           The addition of the LED scoreboard screen at our grounds has made a huge difference to us in terms of both games and advertising options.
@@ -562,9 +572,9 @@ function Testimonial() {
         Joe Melia · Moylagh GAA
       </div>
     </section>
-
   );
 }
+
 
 /* ---------------- FAQ ---------------- */
 function FAQ() {
