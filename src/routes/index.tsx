@@ -544,11 +544,12 @@ import moylaghCrest from "@/assets/moylagh_crest.jpg.asset.json";
 
 function Testimonial() {
   return (
-    <section className="mx-auto max-w-4xl px-5 py-20">
+    <section className="mx-auto max-w-4xl px-5 pt-8 pb-20">
       <div className="text-center text-xs font-bold uppercase tracking-[0.2em]">
         <span className="rounded bg-primary px-2 py-1 text-primary-foreground">Testimonial</span>
       </div>
-      <div className="mt-10 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-10">
+      <div className="mt-6 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-10">
+
         <img
           src={moylaghCrest.url}
           alt="Moylagh GAA (C.L.G. Maolach) club crest"
