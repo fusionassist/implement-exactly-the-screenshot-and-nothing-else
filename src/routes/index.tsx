@@ -145,7 +145,7 @@ function Hero() {
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
             Real-time GAA scoring, remote phone control, and sponsor ads — on a
-            modern LED panel that fits any clubhouse.
+            modern LED panel that fits any Club.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -302,7 +302,7 @@ function WhyCluScore() {
     {
       icon: "📱",
       title: "Control from your phone.",
-      body: "Any committee member can update the score, start the clock, swap teams — from the WiFi in the clubhouse. No specialist software.",
+      body: "Any committee member can update the score, start the clock, swap teams — from the WiFi in the Club. No specialist software.",
     },
     {
       icon: "💶",
@@ -525,12 +525,12 @@ function Testimonial() {
 function FAQ() {
   const faqs = [
     {
-      q: "Will it fit our clubhouse?",
-      a: "Panel sizes are flexible. The smallest sensible install is 1.5 m × 0.75 m, and we can go up to 6 m+ for larger clubhouses. We'll spec it to your wall.",
+      q: "Will it fit our Club?",
+      a: "Panel sizes are flexible. The smallest sensible install is 1.5 m × 0.75 m, and we can go up to 6 m+ for larger Clubs. We'll spec it to your wall.",
     },
     {
       q: "What does it cost?",
-      a: "Price varies with panel size, mounting, and installation location. Get in touch for a quote tailored to your specific clubhouse.",
+      a: "Price varies with panel size, mounting, and installation location. Get in touch for a quote tailored to your specific Club.",
     },
     {
       q: "Do we need internet?",
@@ -596,7 +596,7 @@ function CTABand() {
             Ready to upgrade your scoreboard?
           </h2>
           <p className="mt-2 text-ink-foreground/70">
-            Tell us about your clubhouse — we'll come back with a quote.
+            Tell us about your Club — we'll come back with a quote.
           </p>
         </div>
         <div className="flex flex-wrap gap-3">
@@ -604,7 +604,7 @@ function CTABand() {
             href="#contact"
             className="rounded-md bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition hover:brightness-95"
           >
-            Get a quote for your clubhouse
+            Get a quote for your Club
           </a>
           <a
             href="#contact"
@@ -654,7 +654,7 @@ function Contact() {
         <div>
           <SectionHead
             eyebrow="Contact"
-            title="Get a quote for your clubhouse."
+            title="Get a quote for your Club."
             subtitle="A few details and we'll be in touch. No obligation, no pressure."
           />
           <ul className="mt-8 space-y-4 text-sm">
@@ -734,7 +734,7 @@ function Contact() {
             <textarea
               rows={5}
               className={field}
-              placeholder="Tell us about your clubhouse — wall size, indoor/outdoor, when you'd want it in place…"
+              placeholder="Tell us about your Club — wall size, indoor/outdoor, when you'd want it in place…"
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
             />
