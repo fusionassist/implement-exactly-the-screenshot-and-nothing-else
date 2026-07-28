@@ -504,8 +504,9 @@ function Gallery() {
               <span className="rounded bg-primary px-2 py-1 text-primary-foreground">Gallery</span>
             </div>
             <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">
-              Installed and lit up at real GAA clubs.
+              Some projects we have completed
             </h2>
+
           </div>
           <p className="max-w-sm text-sm text-ink-foreground/70">
             Photos from Moylagh GAA and Clann na nGael — score mode, sponsor rotation, and daytime visibility.
