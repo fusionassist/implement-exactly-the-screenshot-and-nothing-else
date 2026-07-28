@@ -161,7 +161,7 @@ function Hero() {
           </dl>
         </div>
 
-        <ScoreboardMock />
+        <HeroImage />
       </div>
     </section>
   );
