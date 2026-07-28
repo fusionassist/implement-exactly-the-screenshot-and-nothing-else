@@ -363,12 +363,12 @@ function HowItWorks() {
     {
       n: "1",
       title: "We install",
-      body: "LED panel, Raspberry Pi controller, mounted where you want it.",
+      body: "LED panel with controller, mounted where you want it.",
     },
     {
       n: "2",
       title: "You control from your phone",
-      body: "Bookmark the URL, open on any phone on the club WiFi.",
+      body: "Bookmark the URL, open on any phone on Wi-Fi 6 — full pitch coverage.",
     },
     {
       n: "3",
