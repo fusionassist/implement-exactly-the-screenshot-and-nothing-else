@@ -1,6 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import logoAsset from "@/assets/cluscore-logo.png.asset.json";
+import heroAsset from "@/assets/hero-moylagh.jpg.asset.json";
+
+function HeroImage() {
+  return (
+    <div className="relative overflow-hidden rounded-2xl border border-border/60 shadow-panel">
+      <img
+        src={heroAsset.url}
+        alt="CluScore LED scoreboard installed at Moylagh GAA showing Moylagh 4-11 v Summerhill 2-5"
+        className="aspect-[4/3] w-full object-cover"
+      />
+      <div className="absolute bottom-3 left-3 rounded bg-black/70 px-2 py-1 font-mono text-[10px] tracking-widest text-highlight">
+        MOYLAGH GAA · LIVE
+      </div>
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -161,7 +177,7 @@ function Hero() {
           </dl>
         </div>
 
-        <ScoreboardMock />
+        <HeroImage />
       </div>
     </section>
   );
