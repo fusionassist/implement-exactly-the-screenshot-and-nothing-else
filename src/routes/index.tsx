@@ -31,7 +31,9 @@ function Index() {
       <Gallery />
       <WhyCluScore />
       <HowItWorks />
+      <PhoneShowcase />
       <Features />
+
 
       <Testimonial />
       <FAQ />
