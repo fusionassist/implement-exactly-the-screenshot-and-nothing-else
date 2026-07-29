@@ -172,7 +172,7 @@ function Hero() {
             </div>
             <div>
               <dt className="text-xs uppercase tracking-wider text-muted-foreground">Control</dt>
-              <dd className="mt-1 text-sm font-semibold">Any phone</dd>
+              <dd className="mt-1 text-sm font-semibold">Any Smart Phone</dd>
             </div>
             <div>
               <dt className="text-xs uppercase tracking-wider text-muted-foreground">Panel size</dt>
