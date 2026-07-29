@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import logoAsset from "@/assets/cluscore-logo.png.asset.json";
 import heroAsset from "@/assets/hero-moylagh.jpg.asset.json";
 import phoneStart from "@/assets/phone_start_screen.jpeg.asset.json";
