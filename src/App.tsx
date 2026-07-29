@@ -29,9 +29,6 @@ function HeroImage() {
         alt="CluScore LED scoreboard installed at Moylagh GAA showing Moylagh 4-11 v Summerhill 2-5"
         className="aspect-[4/3] w-full object-cover"
       />
-      <div className="absolute bottom-3 left-3 rounded bg-black/70 px-2 py-1 font-mono text-[10px] tracking-widest text-highlight">
-        MOYLAGH GAA · LIVE
-      </div>
     </div>
   );
 }
