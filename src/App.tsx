@@ -513,21 +513,30 @@ function CTABand() {
 function Contact() {
   const [form, setForm] = useState({ name: "", club: "", county: "", contact: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const mailto = useMemo(() => {
-    const subject = encodeURIComponent(
-      `CluScore enquiry — ${form.club || "New club"} (${form.county || "—"})`
-    );
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nClub: ${form.club}\nCounty: ${form.county}\nPhone/email: ${form.contact}\n\n${form.message}`
-    );
-    return `mailto:sales@interactivedisplays.ie?subject=${subject}&body=${body}`;
-  }, [form]);
-
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.location.href = mailto;
-    setSent(true);
+    if (sending || sent) return;
+    const website = (e.currentTarget.elements.namedItem("website") as HTMLInputElement | null)?.value ?? "";
+    setSending(true);
+    setError(null);
+    try {
+      const res = await fetch("/mail.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, website }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json().catch(() => ({}));
+      if (!data?.success) throw new Error("Unexpected response");
+      setSent(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unknown error");
+    } finally {
+      setSending(false);
+    }
   };
 
   const field =
