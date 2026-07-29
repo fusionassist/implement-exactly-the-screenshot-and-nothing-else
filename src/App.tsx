@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import logoAsset from "@/assets/cluscore-logo.png.asset.json";
 import heroAsset from "@/assets/hero-moylagh.jpg.asset.json";
 import phoneStart from "@/assets/phone_start_screen.jpeg.asset.json";
@@ -513,21 +513,30 @@ function CTABand() {
 function Contact() {
   const [form, setForm] = useState({ name: "", club: "", county: "", contact: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const mailto = useMemo(() => {
-    const subject = encodeURIComponent(
-      `CluScore enquiry — ${form.club || "New club"} (${form.county || "—"})`
-    );
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nClub: ${form.club}\nCounty: ${form.county}\nPhone/email: ${form.contact}\n\n${form.message}`
-    );
-    return `mailto:sales@interactivedisplays.ie?subject=${subject}&body=${body}`;
-  }, [form]);
-
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.location.href = mailto;
-    setSent(true);
+    if (sending || sent) return;
+    const website = (e.currentTarget.elements.namedItem("website") as HTMLInputElement | null)?.value ?? "";
+    setSending(true);
+    setError(null);
+    try {
+      const res = await fetch("/mail.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, website }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json().catch(() => ({}));
+      if (!data?.success) throw new Error("Unexpected response");
+      setSent(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unknown error");
+    } finally {
+      setSending(false);
+    }
   };
 
   const field =
@@ -560,6 +569,14 @@ function Contact() {
           </ul>
         </div>
         <form onSubmit={onSubmit} className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
+          />
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="block">
               <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Your name</span>
@@ -588,16 +605,25 @@ function Contact() {
               onChange={(e) => setForm({ ...form, message: e.target.value })}
             />
           </label>
-          <button type="submit" className="mt-6 w-full rounded-md bg-ink px-5 py-3 text-sm font-semibold text-ink-foreground transition hover:opacity-90">
-            Send enquiry
+          <button
+            type="submit"
+            disabled={sending || sent}
+            className="mt-6 w-full rounded-md bg-ink px-5 py-3 text-sm font-semibold text-ink-foreground transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {sending ? "Sending…" : sent ? "Sent ✓" : "Send enquiry"}
           </button>
           {sent && (
-            <p className="mt-3 text-center text-xs text-muted-foreground">
-              Your email app should have opened. If not, <a href={mailto} className="underline">click here</a>.
+            <p className="mt-3 text-center text-xs font-medium text-green-600">
+              Thanks — your enquiry is on the way.
+            </p>
+          )}
+          {error && !sent && (
+            <p className="mt-3 text-center text-xs font-medium text-red-600">
+              Couldn't send: {error}. Please email sales@interactivedisplays.ie directly.
             </p>
           )}
           <p className="mt-3 text-center text-[11px] text-muted-foreground">
-            Submitting opens your email app addressed to sales@interactivedisplays.ie.
+            We'll only use your details to reply to this enquiry.
           </p>
         </form>
       </div>
