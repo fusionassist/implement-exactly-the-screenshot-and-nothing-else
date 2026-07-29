@@ -569,6 +569,14 @@ function Contact() {
           </ul>
         </div>
         <form onSubmit={onSubmit} className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
+          />
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="block">
               <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Your name</span>
@@ -597,16 +605,25 @@ function Contact() {
               onChange={(e) => setForm({ ...form, message: e.target.value })}
             />
           </label>
-          <button type="submit" className="mt-6 w-full rounded-md bg-ink px-5 py-3 text-sm font-semibold text-ink-foreground transition hover:opacity-90">
-            Send enquiry
+          <button
+            type="submit"
+            disabled={sending || sent}
+            className="mt-6 w-full rounded-md bg-ink px-5 py-3 text-sm font-semibold text-ink-foreground transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {sending ? "Sending…" : sent ? "Sent ✓" : "Send enquiry"}
           </button>
           {sent && (
-            <p className="mt-3 text-center text-xs text-muted-foreground">
-              Your email app should have opened. If not, <a href={mailto} className="underline">click here</a>.
+            <p className="mt-3 text-center text-xs font-medium text-green-600">
+              Thanks — your enquiry is on the way.
+            </p>
+          )}
+          {error && !sent && (
+            <p className="mt-3 text-center text-xs font-medium text-red-600">
+              Couldn't send: {error}. Please email sales@interactivedisplays.ie directly.
             </p>
           )}
           <p className="mt-3 text-center text-[11px] text-muted-foreground">
-            Submitting opens your email app addressed to sales@interactivedisplays.ie.
+            We'll only use your details to reply to this enquiry.
           </p>
         </form>
       </div>
