@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import logoAsset from "@/assets/cluscore-logo.png.asset.json";
 
 export function LogoMark({ className = "h-9 w-auto" }: { className?: string }) {
@@ -7,7 +8,7 @@ export function LogoMark({ className = "h-9 w-auto" }: { className?: string }) {
 }
 
 /* ---------------- Page meta (SEO) ---------------- */
-export function usePageMeta({
+export function PageMeta({
   title,
   description,
   path,
@@ -16,31 +17,21 @@ export function usePageMeta({
   description: string;
   path: string;
 }) {
-  useEffect(() => {
-    document.title = title;
-    const setMeta = (selector: string, attr: string, value: string, content: string) => {
-      let el = document.head.querySelector<HTMLMetaElement>(selector);
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute(attr, value);
-        document.head.appendChild(el);
-      }
-      el.setAttribute("content", content);
-    };
-    setMeta('meta[name="description"]', "name", "description", description);
-    setMeta('meta[property="og:title"]', "property", "og:title", title);
-    setMeta('meta[property="og:description"]', "property", "og:description", description);
-    setMeta('meta[property="og:url"]', "property", "og:url", `https://cluscore.ie${path}`);
-
-    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.rel = "canonical";
-      document.head.appendChild(canonical);
-    }
-    canonical.href = `https://cluscore.ie${path}`;
-  }, [title, description, path]);
+  const url = `https://cluscore.ie${path}`;
+  return (
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href={url} />
+      <meta property="og:url" content={url} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+    </Helmet>
+  );
 }
+
 
 export function ScrollToTop() {
   const { pathname, hash } = useLocation();
