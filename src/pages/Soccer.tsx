@@ -11,7 +11,7 @@ export default function Soccer() {
       eyebrow="Soccer"
       h1={
         <>
-          A soccer scoreboard built for{" "}
+          A Football scoreboard built for{" "}
           <span className="relative whitespace-nowrap">
             club grounds
             <span className="absolute inset-x-0 -bottom-1 h-2 rounded bg-primary" />
