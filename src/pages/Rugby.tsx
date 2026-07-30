@@ -19,7 +19,7 @@ export default function Rugby() {
           can read.
         </>
       }
-      intro="Running totals, match clock and half indicator on a bright LED panel — updated from any phone on the club Wi-Fi, with sponsor slots between the action."
+      intro="Running totals, match clock and sin bin timer on a bright LED panel — updated from any phone on the club Wi-Fi, with sponsor slots between the action."
       stats={[
         ["Made in", "Ireland 🇮🇪"],
         ["Control", "Any Smart Phone"],
