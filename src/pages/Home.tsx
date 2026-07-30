@@ -12,7 +12,7 @@ import install4 from "@/assets/install-10-30.00.jpeg.asset.json";
 import install5 from "@/assets/install-10-30.22.jpeg.asset.json";
 import install6 from "@/assets/install-10-30.43.jpeg.asset.json";
 import moylaghCrest from "@/assets/moylagh_crest.jpg.asset.json";
-import { CTABand, Contact, FAQ, SectionHead, usePageMeta } from "@/components/site";
+import { CTABand, Contact, FAQ, SectionHead, PageMeta } from "@/components/site";
 
 export function HeroImage() {
   return (
@@ -27,14 +27,14 @@ export function HeroImage() {
 }
 
 export default function Home() {
-  usePageMeta({
-    title: "CluScore — LED Scoreboards for GAA Clubs | Made in Ireland",
-    description:
-      "GAA-native LED scoreboards with goals and points, phone control over club Wi-Fi and sponsor ad slots. Irish assembled, installed and supported nationwide.",
-    path: "/",
-  });
   return (
     <>
+      <PageMeta
+        title="CluScore — LED Scoreboards for GAA Clubs | Irish Assembled"
+        description="Irish assembled LED scoreboards for GAA clubs: goals and points scoring, match clock, phone control over club Wi-Fi and sponsor ad slots. Installed nationwide."
+        path="/"
+      />
+
       <Hero />
       <Gallery />
       <WhyCluScore />

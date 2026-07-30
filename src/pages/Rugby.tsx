@@ -6,8 +6,8 @@ export default function Rugby() {
     <SportPage
       heroImage={rugbyHero.url}
       path="/rugby"
-      metaTitle="Rugby LED Scoreboards | CluScore Ireland"
-      metaDescription="LED rugby scoreboards with tries, conversions, penalties and drop goals, phone control over club Wi-Fi and sponsor advertising. Irish assembled and supported."
+      metaTitle="CluScore — LED Scoreboards for Rugby Clubs | Irish Assembled"
+      metaDescription="Irish assembled LED rugby scoreboards: tries, conversions, penalties, drop goals, match clock and sin bin timer, phone controlled with sponsor advertising."
       eyebrow="Rugby"
       h1={
         <>
