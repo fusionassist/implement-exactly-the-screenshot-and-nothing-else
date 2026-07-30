@@ -1,4 +1,4 @@
-import { CTABand, Contact, FAQ, SectionHead, usePageMeta } from "@/components/site";
+import { CTABand, Contact, FAQ, SectionHead, PageMeta } from "@/components/site";
 import { FeatureGrid, Gallery, HowItWorks, PhoneShowcase } from "@/pages/Home";
 import cricketHero from "@/assets/cricket-hero.png.asset.json";
 import basketballHero from "@/assets/basketball-hero.png.asset.json";
@@ -39,7 +39,7 @@ const sports = [
 ];
 
 export default function OtherSports() {
-  usePageMeta({
+  PageMeta({
     title: "Basketball, Cricket, Hockey, Tennis, Badminton & Volleyball Scoreboards | CluScore",
     description:
       "LED scoreboards for basketball, cricket, hockey, tennis, badminton and volleyball clubs. Phone control over club Wi-Fi, sponsor advertising, Irish assembled and supported.",

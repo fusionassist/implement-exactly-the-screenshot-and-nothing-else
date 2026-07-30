@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CTABand, Contact, FAQ, SectionHead, usePageMeta } from "@/components/site";
+import { CTABand, Contact, FAQ, SectionHead, PageMeta } from "@/components/site";
 import { FeatureGrid, Gallery, HowItWorks, PhoneShowcase } from "@/pages/Home";
 import heroAsset from "@/assets/hero-moylagh.jpg.asset.json";
 
@@ -23,7 +23,7 @@ export type SportPageProps = {
 };
 
 export default function SportPage(p: SportPageProps) {
-  usePageMeta({ title: p.metaTitle, description: p.metaDescription, path: p.path });
+  PageMeta({ title: p.metaTitle, description: p.metaDescription, path: p.path });
   return (
     <>
       <section id="top" className="relative overflow-hidden">
