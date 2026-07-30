@@ -1,6 +1,6 @@
 import { CTABand, Contact, FAQ, SectionHead, usePageMeta } from "@/components/site";
 import { FeatureGrid, Gallery, HowItWorks, PhoneShowcase } from "@/pages/Home";
-import heroAsset from "@/assets/hero-moylagh.jpg.asset.json";
+import cricketHero from "@/assets/cricket-hero.png.asset.json";
 
 const sports = [
   {
@@ -104,13 +104,14 @@ export default function OtherSports() {
               </div>
             </dl>
           </div>
-          <div className="relative overflow-hidden rounded-2xl border border-border/60 shadow-panel">
+          <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-ink shadow-panel">
             <img
-              src={heroAsset.url}
-              alt="CluScore LED scoreboard — the same hardware supplied for basketball, cricket, hockey, tennis, badminton and volleyball"
-              className="aspect-[4/3] w-full object-cover"
+              src={cricketHero.url}
+              alt="CluScore LED cricket scoreboard showing total, wickets, overs and batsman details"
+              className="aspect-[4/3] w-full object-contain"
             />
           </div>
+
         </div>
       </section>
 
@@ -166,7 +167,13 @@ export default function OtherSports() {
       <Gallery
         heading="Some projects we have completed"
         blurb="The same LED hardware, mounting and phone control we install for GAA clubs — configured for your sport."
+        leadTile={{
+          src: cricketHero.url,
+          label: "Cricket · total, wickets, overs and batsman detail",
+          club: "CRICKET",
+        }}
       />
+
       <FAQ
         title="Questions clubs usually ask."
         faqs={[
