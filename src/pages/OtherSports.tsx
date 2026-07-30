@@ -39,15 +39,14 @@ const sports = [
 ];
 
 export default function OtherSports() {
-  PageMeta({
-    title: "Basketball, Cricket, Hockey, Tennis, Badminton & Volleyball Scoreboards | CluScore",
-    description:
-      "LED scoreboards for basketball, cricket, hockey, tennis, badminton and volleyball clubs. Phone control over club Wi-Fi, sponsor advertising, Irish assembled and supported.",
-    path: "/other-sports",
-  });
-
   return (
     <>
+      <PageMeta
+        title="CluScore — LED Scoreboards for Sports Clubs | Irish Assembled"
+        description="Irish assembled LED scoreboards for basketball, cricket, hockey, tennis, badminton and volleyball clubs in Ireland — phone control and sponsor advertising."
+        path="/other-sports"
+      />
+
       <section id="top" className="relative overflow-hidden">
         <div
           aria-hidden
