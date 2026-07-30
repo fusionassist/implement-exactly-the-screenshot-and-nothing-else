@@ -1,8 +1,10 @@
 import SportPage from "@/pages/SportPage";
+import rugbyHero from "@/assets/rugby-hero.png.asset.json";
 
 export default function Rugby() {
   return (
     <SportPage
+      heroImage={rugbyHero.url}
       path="/rugby"
       metaTitle="Rugby LED Scoreboards | CluScore Ireland"
       metaDescription="LED rugby scoreboards with tries, conversions, penalties and drop goals, phone control over club Wi-Fi and sponsor advertising. Irish assembled and supported."
