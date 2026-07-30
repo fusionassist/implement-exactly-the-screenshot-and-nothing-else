@@ -167,7 +167,13 @@ export default function OtherSports() {
       <Gallery
         heading="Some projects we have completed"
         blurb="The same LED hardware, mounting and phone control we install for GAA clubs — configured for your sport."
+        leadTile={{
+          src: cricketHero.url,
+          label: "Cricket · total, wickets, overs and batsman detail",
+          club: "CRICKET",
+        }}
       />
+
       <FAQ
         title="Questions clubs usually ask."
         faqs={[
