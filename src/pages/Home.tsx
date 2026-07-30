@@ -280,11 +280,13 @@ export function FeatureGrid({
 export function Gallery({
   heading = "Some projects we have completed",
   blurb = "Photos from Moylagh GAA and Clann na nGael — score mode, sponsor rotation, and daytime visibility.",
+  leadTile,
 }: {
   heading?: string;
   blurb?: string;
+  leadTile?: { src: string; label: string; club: string };
 }) {
-  const tiles = [
+  const baseTiles = [
     { src: install1.url, label: "Match night · Moylagh 4-11 v Summerhill 2-5", club: "MOYLAGH GAA" },
     { src: install3.url, label: "Sponsor & community slot · Ireland Lights Up", club: "MOYLAGH GAA" },
     { src: install2.url, label: "Pitch-side view · full scoreboard mode", club: "MOYLAGH GAA" },
@@ -292,6 +294,8 @@ export function Gallery({
     { src: install4.url, label: "Clann na nGael · Athboy v Trim", club: "CLANN NA nGAEL" },
     { src: install5.url, label: "Fresh install · Home v Away 0:0", club: "CLANN NA nGAEL" },
   ];
+  const tiles = leadTile ? [leadTile, ...baseTiles.slice(1)] : baseTiles;
+
   return (
     <section id="gallery" className="border-y border-border bg-ink text-ink-foreground">
       <div className="mx-auto max-w-6xl px-5 py-20">
