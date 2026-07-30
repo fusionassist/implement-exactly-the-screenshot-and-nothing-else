@@ -104,13 +104,14 @@ export default function OtherSports() {
               </div>
             </dl>
           </div>
-          <div className="relative overflow-hidden rounded-2xl border border-border/60 shadow-panel">
+          <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-ink shadow-panel">
             <img
-              src={heroAsset.url}
-              alt="CluScore LED scoreboard — the same hardware supplied for basketball, cricket, hockey, tennis, badminton and volleyball"
-              className="aspect-[4/3] w-full object-cover"
+              src={cricketHero.url}
+              alt="CluScore LED cricket scoreboard showing total, wickets, overs and batsman details"
+              className="aspect-[4/3] w-full object-contain"
             />
           </div>
+
         </div>
       </section>
 
