@@ -1,8 +1,10 @@
 import SportPage from "@/pages/SportPage";
+import soccerHero from "@/assets/soccer-hero.png.asset.json";
 
 export default function Soccer() {
   return (
     <SportPage
+      heroImage={soccerHero.url}
       path="/soccer"
       metaTitle="Soccer LED Scoreboards | CluScore Ireland"
       metaDescription="LED soccer scoreboards with goals, match clock and half indicator, controlled from any phone on the club Wi-Fi, plus sponsor advertising. Irish assembled and supported."
