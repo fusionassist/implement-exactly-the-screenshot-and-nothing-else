@@ -282,11 +282,13 @@ export function Gallery({
   blurb = "Photos from Moylagh GAA and Clann na nGael — score mode, sponsor rotation, and daytime visibility.",
   leadTile,
   secondTile,
+  thirdTile,
 }: {
   heading?: string;
   blurb?: string;
   leadTile?: { src: string; label: string; club: string };
   secondTile?: { src: string; label: string; club: string };
+  thirdTile?: { src: string; label: string; club: string };
 }) {
   const baseTiles = [
     { src: install1.url, label: "Match night · Moylagh 4-11 v Summerhill 2-5", club: "MOYLAGH GAA" },
@@ -297,8 +299,15 @@ export function Gallery({
     { src: install5.url, label: "Fresh install · Home v Away 0:0", club: "CLANN NA nGAEL" },
   ];
   const tiles = baseTiles.map((t, i) =>
-    i === 0 && leadTile ? leadTile : i === 2 && secondTile ? secondTile : t,
+    i === 0 && leadTile
+      ? leadTile
+      : i === 2 && secondTile
+        ? secondTile
+        : i === 5 && thirdTile
+          ? thirdTile
+          : t,
   );
+
 
 
   return (
