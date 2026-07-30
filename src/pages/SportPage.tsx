@@ -69,11 +69,15 @@ export default function SportPage(p: SportPageProps) {
               ))}
             </dl>
           </div>
-          <div className="relative overflow-hidden rounded-2xl border border-border/60 shadow-panel">
+          <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-ink shadow-panel">
             <img
               src={p.heroImage ?? heroAsset.url}
               alt={`CluScore LED scoreboard — the same hardware we supply for ${p.eyebrow.toLowerCase()}`}
-              className="aspect-[4/3] w-full object-cover"
+              className={
+                p.heroImage
+                  ? "aspect-[4/3] w-full object-contain"
+                  : "aspect-[4/3] w-full object-cover"
+              }
             />
           </div>
         </div>
