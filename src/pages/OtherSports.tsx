@@ -172,6 +172,12 @@ export default function OtherSports() {
           label: "Cricket · total, wickets, overs and batsman detail",
           club: "CRICKET",
         }}
+        secondTile={{
+          src: basketballHero.url,
+          label: "Basketball · running points, period and game clock",
+          club: "BASKETBALL",
+        }}
+
       />
 
       <FAQ
