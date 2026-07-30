@@ -2,6 +2,7 @@ import { CTABand, Contact, FAQ, SectionHead, usePageMeta } from "@/components/si
 import { FeatureGrid, Gallery, HowItWorks, PhoneShowcase } from "@/pages/Home";
 import cricketHero from "@/assets/cricket-hero.png.asset.json";
 import basketballHero from "@/assets/basketball-hero.png.asset.json";
+import badmintonHero from "@/assets/badminton-hero.png.asset.json";
 
 
 const sports = [
@@ -179,6 +180,12 @@ export default function OtherSports() {
           label: "Basketball · running points, period and game clock",
           club: "BASKETBALL",
         }}
+        thirdTile={{
+          src: badmintonHero.url,
+          label: "Badminton · rally scoring, games won and match timer",
+          club: "BADMINTON",
+        }}
+
 
       />
 
