@@ -6,8 +6,8 @@ export default function Soccer() {
     <SportPage
       heroImage={soccerHero.url}
       path="/soccer"
-      metaTitle="Soccer LED Scoreboards | CluScore Ireland"
-      metaDescription="LED soccer scoreboards with goals, match clock and half indicator, controlled from any phone on the club Wi-Fi, plus sponsor advertising. Irish assembled and supported."
+      metaTitle="CluScore — LED Scoreboards for Soccer Clubs | Irish Assembled"
+      metaDescription="Irish assembled LED soccer scoreboards: goals, count-up match clock and half indicator, controlled from any phone on club Wi-Fi, with sponsor advertising slots."
       eyebrow="Soccer"
       h1={
         <>
