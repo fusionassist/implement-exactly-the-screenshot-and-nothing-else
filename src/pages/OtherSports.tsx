@@ -1,6 +1,6 @@
 import { CTABand, Contact, FAQ, SectionHead, usePageMeta } from "@/components/site";
 import { FeatureGrid, Gallery, HowItWorks, PhoneShowcase } from "@/pages/Home";
-import heroAsset from "@/assets/hero-moylagh.jpg.asset.json";
+import cricketHero from "@/assets/cricket-hero.png.asset.json";
 
 const sports = [
   {
