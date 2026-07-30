@@ -179,6 +179,12 @@ export default function OtherSports() {
           label: "Basketball · running points, period and game clock",
           club: "BASKETBALL",
         }}
+        thirdTile={{
+          src: badmintonHero.url,
+          label: "Badminton · rally scoring, games won and match timer",
+          club: "BADMINTON",
+        }}
+
 
       />
 
