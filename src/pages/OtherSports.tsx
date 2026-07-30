@@ -1,6 +1,8 @@
 import { CTABand, Contact, FAQ, SectionHead, usePageMeta } from "@/components/site";
 import { FeatureGrid, Gallery, HowItWorks, PhoneShowcase } from "@/pages/Home";
 import cricketHero from "@/assets/cricket-hero.png.asset.json";
+import basketballHero from "@/assets/basketball-hero.png.asset.json";
+
 
 const sports = [
   {
@@ -172,6 +174,12 @@ export default function OtherSports() {
           label: "Cricket · total, wickets, overs and batsman detail",
           club: "CRICKET",
         }}
+        secondTile={{
+          src: basketballHero.url,
+          label: "Basketball · running points, period and game clock",
+          club: "BASKETBALL",
+        }}
+
       />
 
       <FAQ
