@@ -19,6 +19,7 @@ export type SportPageProps = {
   phoneSubtitle?: string;
   scoreCaption?: string;
   ftCaption?: string;
+  heroImage?: string;
 };
 
 export default function SportPage(p: SportPageProps) {
@@ -70,7 +71,7 @@ export default function SportPage(p: SportPageProps) {
           </div>
           <div className="relative overflow-hidden rounded-2xl border border-border/60 shadow-panel">
             <img
-              src={heroAsset.url}
+              src={p.heroImage ?? heroAsset.url}
               alt={`CluScore LED scoreboard — the same hardware we supply for ${p.eyebrow.toLowerCase()}`}
               className="aspect-[4/3] w-full object-cover"
             />
