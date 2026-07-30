@@ -23,9 +23,9 @@ export type SportPageProps = {
 };
 
 export default function SportPage(p: SportPageProps) {
-  PageMeta({ title: p.metaTitle, description: p.metaDescription, path: p.path });
   return (
     <>
+      <PageMeta title={p.metaTitle} description={p.metaDescription} path={p.path} />
       <section id="top" className="relative overflow-hidden">
         <div
           aria-hidden
