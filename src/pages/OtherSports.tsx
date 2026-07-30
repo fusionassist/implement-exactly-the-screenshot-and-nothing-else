@@ -1,6 +1,8 @@
 import { CTABand, Contact, FAQ, SectionHead, usePageMeta } from "@/components/site";
 import { FeatureGrid, Gallery, HowItWorks, PhoneShowcase } from "@/pages/Home";
 import cricketHero from "@/assets/cricket-hero.png.asset.json";
+import basketballHero from "@/assets/basketball-hero.png.asset.json";
+
 
 const sports = [
   {
