@@ -260,23 +260,16 @@ export function Contact({ sport }: { sport?: string }) {
     setSending(true);
     setError(null);
     try {
-      // Google Ads click IDs ride inside `message` — mail.php on the server
-      // ignores unknown JSON fields, so this is the reliable path into the
-      // sales@ email. The "GCLID:" label is what the offline-conversion
-      // upload flow greps for.
+      // Google Ads click ID for offline conversion uploads. mail.php
+      // (updated 2026-08-10) validates a single top-level `gclid` field and
+      // prints a "GCLID:" line in the sales@ notification — fold the braid
+      // variants into it, same as the previously-live server-patched form.
       const clickIds = getClickIds();
-      const trackingLines = [
-        clickIds.gclid && `GCLID: ${clickIds.gclid}`,
-        clickIds.wbraid && `WBRAID: ${clickIds.wbraid}`,
-        clickIds.gbraid && `GBRAID: ${clickIds.gbraid}`,
-      ].filter(Boolean) as string[];
-      const message = trackingLines.length
-        ? `${form.message}\n\n--- Google Ads ---\n${trackingLines.join("\n")}`
-        : form.message;
+      const gclid = clickIds.gclid ?? clickIds.wbraid ?? clickIds.gbraid ?? "";
       const res = await fetch("/mail.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, message, sport: sport ?? "GAA", website }),
+        body: JSON.stringify({ ...form, sport: sport ?? "GAA", website, gclid }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json().catch(() => ({}));

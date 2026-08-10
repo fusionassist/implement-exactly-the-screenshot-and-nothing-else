@@ -43,6 +43,18 @@ export function captureClickIds(): void {
       }
       document.cookie = `${PREFIX}${key}=${encodeURIComponent(value)}; max-age=${TTL_SECONDS}; path=/; SameSite=Lax`;
     }
+    // Legacy bridge: the 2026-08-10 server-patched form stored the click ID
+    // under `cluscore_gclid` (first of gclid/gbraid/wbraid, no TTL). Keep
+    // writing it so any still-deployed patched bundle finds fresh clicks.
+    const legacy =
+      params.get("gclid") ?? params.get("gbraid") ?? params.get("wbraid");
+    if (legacy && VALID.test(legacy)) {
+      try {
+        window.localStorage.setItem("cluscore_gclid", legacy);
+      } catch {
+        // best-effort only
+      }
+    }
   } catch {
     // Never let tracking break the page.
   }
@@ -79,6 +91,16 @@ export function getClickIds(): ClickIds {
       if (fromCookie && VALID.test(fromCookie)) out[key] = fromCookie;
     } catch {
       // give up on this key
+    }
+  }
+  // Legacy bridge: visitors who landed on the 2026-08-10 server-patched form
+  // only have `cluscore_gclid` — use it when nothing newer is stored.
+  if (!out.gclid && !out.wbraid && !out.gbraid) {
+    try {
+      const legacy = window.localStorage.getItem("cluscore_gclid");
+      if (legacy && VALID.test(legacy)) out.gclid = legacy;
+    } catch {
+      // best-effort only
     }
   }
   return out;
