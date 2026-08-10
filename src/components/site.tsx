@@ -247,7 +247,14 @@ export function CTABand({
 
 /* ---------------- Contact ---------------- */
 export function Contact({ sport }: { sport?: string }) {
-  const [form, setForm] = useState({ name: "", club: "", county: "", contact: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    club: "",
+    county: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -367,13 +374,29 @@ export function Contact({ sport }: { sport?: string }) {
             </label>
             <label className="block">
               <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Phone or email
+                Email
               </span>
               <input
                 required
+                type="email"
+                autoComplete="email"
                 className={field}
-                value={form.contact}
-                onChange={(e) => setForm({ ...form, contact: e.target.value })}
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+              />
+            </label>
+            <label className="block">
+              <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Phone
+              </span>
+              <input
+                required
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                className={field}
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
               />
             </label>
           </div>
