@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import logoAsset from "@/assets/cluscore-logo.png.asset.json";
+import { getClickIds } from "@/lib/click-ids";
 
 export function LogoMark({ className = "h-9 w-auto" }: { className?: string }) {
   return <img src={logoAsset.url} alt="CluScore" className={className} />;
@@ -259,10 +260,23 @@ export function Contact({ sport }: { sport?: string }) {
     setSending(true);
     setError(null);
     try {
+      // Google Ads click IDs ride inside `message` — mail.php on the server
+      // ignores unknown JSON fields, so this is the reliable path into the
+      // sales@ email. The "GCLID:" label is what the offline-conversion
+      // upload flow greps for.
+      const clickIds = getClickIds();
+      const trackingLines = [
+        clickIds.gclid && `GCLID: ${clickIds.gclid}`,
+        clickIds.wbraid && `WBRAID: ${clickIds.wbraid}`,
+        clickIds.gbraid && `GBRAID: ${clickIds.gbraid}`,
+      ].filter(Boolean) as string[];
+      const message = trackingLines.length
+        ? `${form.message}\n\n--- Google Ads ---\n${trackingLines.join("\n")}`
+        : form.message;
       const res = await fetch("/mail.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, sport: sport ?? "GAA", website }),
+        body: JSON.stringify({ ...form, message, sport: sport ?? "GAA", website }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json().catch(() => ({}));
