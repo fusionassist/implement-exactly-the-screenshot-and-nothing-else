@@ -36,6 +36,7 @@ export default function Home() {
       />
 
       <Hero />
+      <SportsCapital />
       <Gallery />
       <WhyCluScore />
       <HowItWorks />
@@ -105,6 +106,37 @@ function Hero() {
           </dl>
         </div>
         <HeroImage />
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Sports Capital Grant callout ---------------- */
+function SportsCapital() {
+  return (
+    <section
+      id="sports-capital"
+      aria-labelledby="sports-capital-title"
+      className="border-y border-primary/40 bg-primary/10"
+    >
+      <div className="mx-auto max-w-5xl px-5 py-10 text-center md:py-14">
+        <h2
+          id="sports-capital-title"
+          className="text-2xl font-black tracking-tight sm:text-3xl md:text-4xl"
+        >
+          Eligible for Sports Capital Grant Funding
+          <span aria-hidden="true" className="text-primary">
+            *
+          </span>
+        </h2>
+        <p className="mx-auto mt-4 max-w-3xl text-base text-muted-foreground sm:text-lg">
+          Upgrade your club with a full-colour digital GAA scoreboard capable of generating
+          ongoing sponsorship revenue.
+        </p>
+        <p className="mt-4 text-xs text-muted-foreground">
+          *Eligibility and funding are subject to the applicable programme rules and approval of
+          the club's application.
+        </p>
       </div>
     </section>
   );
