@@ -479,6 +479,20 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-5 py-4 text-xs text-muted-foreground">
+          <span className="font-semibold">Fusion Technologies group:</span>{" "}
+          <a href="https://fusiontechnologies.ie" className="hover:text-foreground">Fusion Technologies</a> ·{" "}
+          <a href="https://interactivedisplays.ie" className="hover:text-foreground">Interactive Displays Ireland</a> ·{" "}
+          <a href="https://interactivedisplaysuk.com" className="hover:text-foreground">Interactive Displays UK</a> ·{" "}
+          <a href="https://avsupplies.ie" className="hover:text-foreground">AV Supplies</a> ·{" "}
+          <a href="https://www.screenfusion.ai" className="hover:text-foreground">ScreenFusion</a> ·{" "}
+          <a href="https://www.signmdm.com" className="hover:text-foreground">SignMDM</a> ·{" "}
+          <a href="https://interpos.ai" className="hover:text-foreground">Interpos</a> ·{" "}
+          <a href="https://qfusion.app" className="hover:text-foreground">QFusion</a> ·{" "}
+          <a href="https://fusionexosuits.com" className="hover:text-foreground">Fusion ExoSuits</a>
+        </div>
+      </div>
+      <div className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-2 px-5 py-4 text-xs text-muted-foreground sm:flex-row sm:items-center">
           <span>© {new Date().getFullYear()} Interactive Displays Ireland. All rights reserved.</span>
           <span>Made in Ireland 🇮🇪</span>
